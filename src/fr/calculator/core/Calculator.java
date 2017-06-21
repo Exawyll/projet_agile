@@ -7,4 +7,8 @@ public class Calculator {
 
 	}
 
+	public void printResult(String operation, String result) {
+        System.out.printf("Le résultat de l'opération " + operation + " est : " + result);
+    }
+
 }

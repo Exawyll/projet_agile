@@ -1,5 +1,15 @@
 package fr.calculator.core;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Calculator {
@@ -55,6 +65,48 @@ public class Calculator {
 
 	public static void printResult(String operation, String result) {
         System.out.printf("Le résultat de l'opération " + operation + " est : " + result);
-    }
 
+        writeFile(operation, result);
+    }
+	
+	public static void writeFile(String operation, String result) {
+		BufferedWriter bw = null;
+		FileWriter fw = null;
+		
+        File file = new File("operations-result.txt");
+        String text = operation + " = " + result;
+        
+        try {
+	        if (!file.exists()) {
+	        	file.createNewFile();
+	        }
+	        
+	        fw = new FileWriter(file.getAbsoluteFile(), true);
+			bw = new BufferedWriter(fw);
+
+			bw.write(text);
+			bw.newLine();
+			
+        } catch (IOException e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				if (bw != null)
+					bw.close();
+
+				if (fw != null)
+					fw.close();
+
+			} catch (IOException ex) {
+
+				ex.printStackTrace();
+
+			}
+		}
+	}
+	
 }

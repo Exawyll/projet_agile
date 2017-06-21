@@ -36,7 +36,7 @@ public class Calculator {
 		nb1 = reader.nextFloat();
 		
 		if (nb1 == (float)nb1) {
-			System.out.println("Veuillez saisir l'opérateur : ");
+			System.out.println("Veuillez saisir l'op\\x82rateur : ");
 			operator = reader.next();
 			
 			if (operator == (String)operator) {
@@ -49,7 +49,7 @@ public class Calculator {
 	}
 
 	public static void printResult(String operation, String result) {
-        System.out.printf("Le résultat de l'opération " + operation + " est : " + result);
+        System.out.printf("Le rï¿½sultat de l'opï¿½ration " + operation + " est : " + result);
     }
 
 }

@@ -2,35 +2,54 @@ package fr.calculator.core;
 
 import java.util.Scanner;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
-
 public class Calculator {
 
 	public static void main(String[] args) {
 		getOperation();
 	}
 	
-	public static String getOperation () {
+	public static void calc(float nb1, float nb2, String operator) {
+		float result;
+		if(operator.equals("+")) {
+			result = nb1+nb2;
+		} else if (operator.equals("-")) {
+			result = nb1-nb2;
+		} else if (operator.equals("*")) {
+			result = nb1*nb2;
+		} else {
+			result = nb1/nb2;
+		}
+
+		String 	operation = nb1 + operator + nb2;
+		
+		printResult(operation, String.valueOf(result));
+		
+	}
+	
+	public static void getOperation() {
 		Scanner reader = new Scanner(System.in);
+		float nb1 = 0;
+		float nb2 = 0;
+		String operator = null;
 		
 		System.out.println("Veuillez saisir votre premier nombre : ");
-		double nb1 = reader.nextDouble();
+		nb1 = reader.nextFloat();
 		
-		if (nb1 == (double)nb1) {
+		if (nb1 == (float)nb1) {
 			System.out.println("Veuillez saisir l'opérateur : ");
-			String operator = reader.toString();
+			operator = reader.next();
 			
 			if (operator == (String)operator) {
-				System.out.println("Veuillez saisir votre secobd nombre : ");
-				double nb2 = reader.nextDouble();
+				System.out.println("Veuillez saisir votre second nombre : ");
+				nb2 = reader.nextFloat();
 			}
 		}
-		
-		return null;
+		reader.close();
+		calc(nb1, nb2, operator);
 	}
 
-	public void printResult(String operation, String result) {
-        System.out.printf("Le rÃ©sultat de l'opÃ©ration " + operation + " est : " + result);
+	public static void printResult(String operation, String result) {
+        System.out.printf("Le résultat de l'opération " + operation + " est : " + result);
     }
 
 }

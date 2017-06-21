@@ -4,9 +4,27 @@ import java.util.Scanner;
 
 public class Calculator {
 
-    public static void main(String[] args) {
-        getOperation();
-    }
+	public static void main(String[] args) {
+		getOperation();
+	}
+	
+	public static void calc(float nb1, float nb2, String operator) {
+		float result;
+		if(operator.equals("+")) {
+			result = nb1+nb2;
+		} else if (operator.equals("-")) {
+			result = nb1-nb2;
+		} else if (operator.equals("*")) {
+			result = nb1*nb2;
+		} else {
+			result = nb1/nb2;
+		}
+
+		String 	operation = nb1 + operator + nb2;
+		
+		printResult(operation, String.valueOf(result));
+		
+	}
 
     public static void calc(float nb1, float nb2, String operator) {
         float result;
@@ -53,7 +71,4 @@ public class Calculator {
     public static void printResult(String operation, String result) {
         System.out.printf("Le r�sultat de l'op�ration " + operation + " est : " + result);
     }
-
-    private void function
-
 }

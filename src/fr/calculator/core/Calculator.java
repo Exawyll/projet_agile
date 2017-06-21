@@ -5,17 +5,22 @@ import java.util.Scanner;
 public class Calculator {
 
 	public static void main(String[] args) {
+		System.setProperty( "file.encoding", "UTF-8" );
 		getOperation();
 	}
 	
 	public static void calc(float nb1, float nb2, String operator) {
-		float result;
+		double result = 0;
 		if(operator.equals("+")) {
 			result = nb1+nb2;
 		} else if (operator.equals("-")) {
 			result = nb1-nb2;
 		} else if (operator.equals("*")) {
 			result = nb1*nb2;
+		} else if (operator.equals("^")) {
+			result = Math.pow(nb1, nb2);
+		} else if (operator.equals("V")) {
+			result = nb2*Math.sqrt(nb1);
 		} else {
 			result = nb1/nb2;
 		}
